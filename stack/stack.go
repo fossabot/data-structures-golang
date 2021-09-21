@@ -17,3 +17,7 @@ func (s *Stack) Pop() int {
 	s.items = s.items[:l]
 	return toRemove
 }
+
+func NewStack() Stack {
+	return Stack{}
+}
