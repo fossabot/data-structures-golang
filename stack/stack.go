@@ -3,7 +3,7 @@
 // FILO(First In Last Out).
 package stack
 
-// Stack represents a queue that holds a slice
+// Stack represents a stack that holds a slice
 type Stack struct {
 	Items []int
 }
