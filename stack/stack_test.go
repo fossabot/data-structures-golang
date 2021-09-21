@@ -7,27 +7,32 @@ import (
 
 func TestPush(t *testing.T) {
 	var testCases = []struct {
+		name  string
 		items []int
 		want  Stack
 	}{
 		{
+			"Adding the value of 300 to the stack",
 			[]int{100, 200, 300},
 			Stack{[]int{100, 200, 300}},
 		},
 		{
+			"Adding the value of 30 to the stack",
 			[]int{10, 20, 30},
 			Stack{[]int{10, 20, 30}},
 		},
 	}
 
 	for _, tc := range testCases {
-		myStack := NewStack()
-		for _, item := range tc.items {
-			myStack.Push(item)
-		}
-		if !reflect.DeepEqual(myStack, tc.want) {
-			t.Error("expected:", tc.want, "got:", myStack)
-		}
+		t.Run(tc.name, func(t *testing.T) {
+			myStack := NewStack()
+			for _, item := range tc.items {
+				myStack.Push(item)
+			}
+			if !reflect.DeepEqual(myStack, tc.want) {
+				t.Error("expected:", tc.want, "got:", myStack)
+			}
+		})
 	}
 }
 
